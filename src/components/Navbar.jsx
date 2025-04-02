@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import { HiMenuAlt3 } from "react-icons/hi";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState('home')
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    }
     const navLinks = (
 
 
@@ -68,6 +73,21 @@ const Navbar = () => {
                 <nav>
                     {navLinks}
                 </nav>
+            </div>
+
+            {/* Button  */}
+            <div className='hidden md:block '>
+                <a href="#contact" className=' text-white  hover:bg-yellow-400/90 px-4 py-2 rounded'>Contact</a>
+            </div>
+            {/* Hamburger Menu */}
+            <div className='block md:hidden'>
+               <button 
+               onClick={handleToggle}
+               className={'inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'}>
+
+                <HiMenuAlt3 className='size-6' />
+                </button>
+               
             </div>
         </div>
 
